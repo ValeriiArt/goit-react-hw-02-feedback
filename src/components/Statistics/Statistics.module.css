@@ -1,0 +1,23 @@
+.container{
+    width: 250px;
+    display: inline-block;
+    margin: 20px auto;
+}
+.text{
+    display: flex;
+    justify-content: space-around;
+}
+.textValue{
+    margin-right: 15px;
+}
+
+.totalStatistics{
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.totalText{
+    display: flex;
+    justify-content: space-between;
+}
