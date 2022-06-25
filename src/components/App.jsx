@@ -9,8 +9,6 @@ export class App extends Component {
     good: 0,
     neutral: 0,
     bad: 0,
-    // total: 0,
-    // positivePercentage: 0,
   };
  
   
@@ -22,65 +20,16 @@ export class App extends Component {
     });
   };
 
-  // handleGood = () => {
-  //   this.setState(prevState => {
-  //     return {
-  //       good: prevState.good + 1,
-  //     }
-  //   })
-  //   this.countTotalFeedback();
-  //   this.countPositiveFeedbackPercentage();
-  // };
-
-  // handleNeutral = () => {
-  //   this.setState(prevState => {
-  //     return {
-  //       neutral: prevState.neutral + 1,
-  //     }
-  //   })
-  //   this.countTotalFeedback();
-  //   this.countPositiveFeedbackPercentage();
-  // };
-
-  // handleBad = () => {
-  //   this.setState(prevState => {
-  //     return {
-  //       bad: prevState.bad + 1,
-  //     }
-  //   })
-  //   this.countTotalFeedback();
-  //   this.countPositiveFeedbackPercentage();
-  // };
-
-  // countTotalFeedback = () => {
-  //   this.setState(prevState => {
-  //     return {
-  //       total: prevState.good + prevState.neutral + prevState.bad,
-  //     }
-  //   })
-  // };
-
-  // countPositiveFeedbackPercentage = () => {
-  //   this.setState(prevState => {
-  //     return {
-  //       positivePercentage: prevState.good * 100 / prevState.total,
-  //     }
-  //   })
-  // };
-
-  
-
   render() {
+    const { good } = this.state;
     const total = Object.values(this.state).reduce(
       (sum, current) => sum + current,
       0
     );
-    const countPositiveFeedbackPercentage = this.state.good * 100 / total;
+    const countPositiveFeedbackPercentage = Math.round(good * 100 / total);
     const optionsName = Object.keys(this.state);
     const optionsStatistics = Object.values(this.state);
-    console.log("Імя:", optionsName);
-    console.log("значення:", optionsStatistics);
-    // const { good, neutral, bad} = this.state;
+ 
       return (
         <div>
         
@@ -102,27 +51,6 @@ export class App extends Component {
               message="There is no feedback" />
             }
           </Section>
-            
-
-          {/* <button
-            type="button"
-            onClick={this.handleGood}
-          >
-            Good
-          </button>
-          <button
-            type="button"
-            onClick={this.handleNeutral}
-          >
-            Neutral
-          </button>
-          <button
-            type="button"
-            onClick={this.handleBad}
-          >
-            Bad
-          </button> */}
-
         </div>
       )
   };

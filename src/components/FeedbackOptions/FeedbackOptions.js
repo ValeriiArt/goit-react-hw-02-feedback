@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import s from './FeedbackOptions.module.css'
 
 const FeedbackOptions = ({ options, onLeaveFeedback }) => {
@@ -13,6 +14,15 @@ const FeedbackOptions = ({ options, onLeaveFeedback }) => {
             </button>
         ))
     )     
+};
+
+FeedbackOptions.propTypes = {
+  contacts: PropTypes.arrayOf(
+    PropTypes.shape({
+      key: PropTypes.string.isRequired,
+    })
+  ),
+  onLeaveFeedback: PropTypes.func.isRequired,
 };
 
 
